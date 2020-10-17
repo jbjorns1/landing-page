@@ -1,0 +1,1087 @@
+<html>
+<head>
+    <title>Manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="resources/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="resources/css/pilcrow.css" />
+    <link type="text/css" rel="stylesheet" href="resources/css/hljs-github.min.css"/>
+</head>
+<body>
+<p>
+<!--
+
+This documentation is part of Clicker Quiz Manager. CQM and this manual are
+copyright 2014-2015 Soren Bjornstad.
+
+-->
+
+<p><a id="clicker_quiz_manager:_introduction"></a></p>
+
+<h1>Clicker Quiz Manager: Introduction</h1>
+
+<p>This is the manual for the <strong>Clicker Quiz Manager</strong>, version 1.1.0. This
+application allows you to manage classes, sets of questions, and review history
+in order to generate daily quizzes for your students. CQM interfaces with
+Turning Technologies’ <a href="http://www.turningtechnologies.com/">TurningPoint</a> clicker response
+software (hereafter referred to as “TurningPoint”) by exporting questions to
+TurningPoint and importing scores and statistics from it. If you do not have a
+clicker system or want to use both clickers and another method of giving
+quizzes at different times, CQM can also export quizzes in HTML, plain text, or
+(with the <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> document formatter <a href="#setting_up_latex">set up on your
+system</a>) a print-ready PDF format.</p>
+
+<p>All instructions in the manual that refer to TurningPoint were written for
+version 5.3.1. Future versions will probably be similar, but details may
+change, and changes in report and file formats may require updates to CQM.</p>
+
+<p><a id="outline"></a></p>
+
+<h1>Outline</h1>
+
+<ul>
+<li><a href="#clicker_quiz_manager:_introduction"><strong>Introduction</strong></a></li>
+<li><a href="#getting_help"><strong>Getting Help</strong></a>: about this manual and context-sensitive
+help</li>
+<li><a href="#opening_creating_and_saving_database_files"><strong>Opening, creating, and saving database
+files</strong></a>
+<ul>
+<li><a href="#installing_and_running_cqm">Installing and running CQM</a></li>
+<li><a href="#about_databases">About databases</a></li>
+</ul></li>
+<li><a href="#the_main_window"><strong>The main window</strong></a>: where it all starts. Includes a summary
+of the following sections of the program.</li>
+<li><a href="#the_classes_window"><strong>The Classes window</strong></a>: working with several different
+classes</li>
+<li><a href="#the_sets_window"><strong>The Sets window</strong></a>: creating and organizing questions
+<ul>
+<li>About <a href="#question_sets">question sets</a></li>
+<li><a href="#the_question_editor">The question editor</a>
+<ul>
+<li><a href="#the_question_list">The question list</a></li>
+<li><a href="#the_selected_question_area">The selected question area</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#the_students_window"><strong>The Students window</strong></a>: who’s in your class?
+<ul>
+<li><a href="#table_columns">Table columns</a> in this window</li>
+<li><a href="#editing_students">Editing students</a></li>
+<li><a href="#importing_and_exporting">Importing and exporting</a> students</li>
+</ul></li>
+<li><a href="#the_generate_quiz_window"><strong>The Generate Quiz window</strong></a>: creating and giving
+quizzes
+<ul>
+<li><a href="#new_and_review_sets">New and review sets</a></li>
+<li><a href="#quiz_options">Quiz options</a></li>
+<li><a href="#previewing_saving_and_rescheduling_a_quiz">Previewing, saving, and rescheduling a quiz</a></li>
+<li><a href="#using_quizzes_in_turningpoint">Using quizzes in TurningPoint</a>
+<ul>
+<li><a href="#importing_a_quiz_into_turningpoint">Importing a quiz into TurningPoint</a></li>
+<li><a href="#polling">Polling</a> to get students’ answers</li>
+<li>See also the <em>Importing Results</em> section of <em>The Quiz History window</em>.</li>
+</ul></li>
+</ul></li>
+<li><a href="#the_quiz_history_window"><strong>The Quiz History window</strong></a>: seeing how your students
+did
+<ul>
+<li><a href="#viewing_a_quiz">Viewing a quiz</a></li>
+<li><a href="#importing_results">Importing results</a></li>
+<li><a href="#viewing_results">Viewing results</a></li>
+<li><a href="#emailing_results">Emailing results</a>
+<ul>
+<li><a href="#email_options">Email options</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#preferences"><strong>Preferences</strong></a></li>
+<li><a href="#miscellaneous_and_supplementary_material"><strong>Miscellaneous and supplementary material</strong></a>
+<ul>
+<li><a href="#setting_up_latex">Setting up LaTeX</a></li>
+<li><a href="#latex_servers">LaTeX servers</a></li>
+<li><a href="#keyboard_shortcuts">Keyboard shortcuts</a></li>
+</ul></li>
+</ul>
+
+<p><a id="getting_help"></a></p>
+
+<h1>Getting Help</h1>
+
+<p>In addition to the documentation in this manual, <a href="https://en.wikipedia.org/wiki/Context-sensitive_help">context-sensitive
+help</a> is available – that is, you can get help on
+specific interface elements directly within the program. This documentation is
+available for most buttons and input fields that are not self-explanatory.</p>
+
+<p>This help is made available in the form of tooltips or “what’s this?” help text,
+depending on the type of interface element. For buttons, checkboxes, and other
+items where clicking immediately takes action, tooltips are used: simply hover
+the mouse cursor over the item to see the help text. For elements like text
+boxes, spin boxes, and lists, which you can select without changing a value or
+taking an action, “what’s this” help is used: select the item and press
+<strong>Shift+F1</strong> to view the help text. (Depending on your computer system, there
+may also be a question-mark button in the title bar of the window. If you have
+this button, you can click it and then click the item you want help on.)  If in
+doubt about which method to use, simply try both methods.</p>
+
+<p><a id="opening_creating_and_saving_database_files"></a></p>
+
+<h1>Opening, creating, and saving database files</h1>
+
+<p><a id="installing_and_running_cqm"></a></p>
+
+<h2>Installing and running CQM</h2>
+
+<p>To start CQM, double-click on the <code>runcqm</code> file in the main program folder. (If
+you are using Windows, you will first need to rename the file to <code>runcqm.py</code> so
+that the computer will know to use Python to run it.)</p>
+
+<p>In the current version, it’s necessary to install Python 2.7 before you can run
+CQM; if you’re using Windows, you can grab the installer
+<a href="https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi">here</a>. You’ll also need to install a few packages
+for Python, which are listed in the README file. For help with this, please
+contact the developer or other technical support. In a future release, a
+package that works out of the box on Windows will be added.</p>
+
+<p><a id="about_databases"></a></p>
+
+<h2>About databases</h2>
+
+<p>On the first run, you will be asked whether you want to create a new database;
+you should take this option if you don’t have a database already. The next time
+you open CQM, it will open the database you had open previously. If you want to
+create a new database or switch to a different one, you can use the <strong>Create
+Database</strong> and <strong>Open Database</strong> options on the file menu.</p>
+
+<p>Generally, however, there is no reason to maintain multiple database files
+unless you have two “universes” of classes which you will never want to share
+any information between; one database file can manage multiple classes and any
+number of questions.</p>
+
+<p>CQM automatically saves your changes at periodic intervals as you go along, so
+there is no need to save manually. When you are done working with CQM, simply
+quit the program. You can change how many minutes CQM waits between saves in
+the <a href="#preferences">preferences</a>; increasing the value may result in
+slightly better performance at the cost of losing more work if there is a crash
+or power failure.</p>
+
+<p><a id="the_main_window"></a></p>
+
+<h1>The main window</h1>
+
+<p>The main program window is a small window with buttons to open the windows for
+each section of the program. The sections are as follows:</p>
+
+<ul>
+<li><a href="#the_classes_window"><strong>Classes</strong></a>: Add new classes or look at the classes you’ve
+set up. Classes store a list of the students in the class, information about
+what questions and question sets you’ve introduced, and any results you
+choose to import from TurningPoint.</li>
+<li><a href="#the_sets_window"><strong>Question Sets</strong></a>: Add, edit, and view your sets of questions,
+hereafter frequently called simply <em>sets</em>. A set is a group of questions
+assigned a particular name; each quiz you create takes its questions from one
+or more <a href="#new_and_review_sets"><em>new sets</em> and any <em>review sets</em></a> that are due
+at the time. Any set you create can be used in any of your classes.</li>
+<li><a href="#the_students_window"><strong>Students</strong></a>: Edit the list of students in your classes.
+The list is used to keep track of how your students did when you <a href="#importing_results">import
+results from TurningPoint</a>. If you don’t want to
+import poll results from TurningPoint, adding a list of your students is not
+required.</li>
+<li><a href="#the_generate_quiz_window"><strong>Generate Quiz</strong></a>: Go here when you’re ready to
+create a quiz for your class. You can choose what new sets to use and how
+many questions you want on the quiz and CQM will randomly select some
+questions from the appropriate sets. Once the quiz has been generated, you
+can save it in formats suitable for <a href="#importing_a_quiz_into_turningpoint">importing into
+TurningPoint</a> (RTF), <a href="#setting_up_latex">printing
+out</a> and distributing to your students to take in class
+(PDF), or viewing on-screen or sending over the Internet (HTML). You can also
+export a plain-text version to be used any way you want.</li>
+<li><a href="#the_quiz_history_window"><strong>Quiz History</strong></a>: Here you can look at the quizzes
+you’ve given in the past and see what questions were on them and export RTF,
+PDF, HTML, or plain-text versions of them again. This is also where you can
+import, view, and <a href="#emailing_results">email results</a> imported from
+TurningPoint.</li>
+</ul>
+
+<p>Several other tools are available from the menus:</p>
+
+<ul>
+<li><strong>File → Create/Open Database...</strong>: Switch databases to a new or existing
+one. This is not usually necessary; see the section on
+<a href="#about_databases">databases</a>.</li>
+<li><strong>Tools → Back Up Database...</strong>: Export a backup copy of your database. It’s
+a good idea to back up your database regularly in case you accidentally
+delete important data and to guard against program bugs.</li>
+<li><strong>Tools → Forget Saved Passwords</strong>: CQM has an option to save your email
+server password (see the <a href="#preferences">preferences</a> section). If there
+are security concerns or you otherwise want to be sure no saved passwords
+remain in the database, choose this option. Note that this does not disable
+the saving of passwords: the next time you enter your password, it will be
+saved again. If you want to disable it, you can do so in the preferences.</li>
+<li><strong>Tools → Preferences</strong>: Edit <a href="#preferences">user and interface
+preferences</a>.</li>
+<li><strong>Help → Manual</strong>: Open this manual in your web browser.</li>
+<li><strong>Help → Version</strong>: Show what version of CQM you’re using. (This is usually
+also displayed at the top of the main window.)</li>
+</ul>
+
+<p><a id="the_classes_window"></a></p>
+
+<h1>The Classes window</h1>
+
+<p>In CQM, you create one <em>class</em> for each section that you teach. This allows you
+to introduce different questions or the same questions in a different order to
+each of your sections and keep track of how your students in each section did.
+This also means that if you teach a class again, you can go back and see what
+you did in previous years.</p>
+
+<p>The Classes window is fairly straightforward. On the left is a list of all the
+classes you currently have, arranged in alphabetical order; on the right you
+can add new classes and rename or delete existing classes. Deleting a class
+will never touch any of your question <a href="#the_sets_window">sets</a>, but it will
+permanently delete any <a href="#the_students_window">students</a>, <a href="#the_quiz_history_window">review
+history</a>, and <a href="#viewing_results">quiz results</a> that you have
+for that class, so be careful. Classes are always listed in alphabetical order.</p>
+
+<p>Every class has access to all sets and questions that you have in your
+database, so creating classes does not need to divide up your questions in any
+way.</p>
+
+<p><a id="the_sets_window"></a></p>
+
+<h1>The Sets window</h1>
+
+<p><a id="question_sets"></a></p>
+
+<h2>Question sets</h2>
+
+<p>A <em>question set</em> or just <em>set</em> is a group of questions that will be introduced
+on a certain quiz. For instance, you might create a set called “Akkusativ” which
+contains questions involving the accusative case in German. After you’ve created
+this set, anytime you learn about the accusative case in one of your classes,
+you can generate and give a quiz using that set.</p>
+
+<p>The sets dialog (sometimes called the <em>sets list</em>) is very similar to the
+classes dialog, with the addition of “move up” and “move down” buttons since
+you may want to group your sets in ways other than alphabetical order; perhaps
+you want to put similar topics together. If you want to move a set a long
+distance, it may be more convenient to drag and drop it to its new location
+than to use the buttons.</p>
+
+<p>Deleting a set will delete all of its questions, and it will no longer come up
+for review in any classes where it is a review set. Past quizzes that included
+that set can still be viewed, although their set name is no longer available.</p>
+
+<p><a id="the_question_editor"></a></p>
+
+<h2>The question editor</h2>
+
+<p>When you click the Edit button or double-click on an entry in the sets list,
+you will be taken to the question editor. The question editor has two sections:
+the <a href="#the_question_list"><em>question list</em></a> and the <a href="#the_selected_question_area"><em>selected question
+area</em></a>. When you select a question in the question
+list, the selected question area shows the information for that question.</p>
+
+<p><a id="the_question_list"></a></p>
+
+<h3>The question list</h3>
+
+<p>The <strong>New</strong> button starts a new question and moves the focus to the <a href="#the_selected_question_area">selected
+question area</a>, while the <strong>Delete</strong> button deletes
+the currently selected question.</p>
+
+<p>The <strong>Move Up</strong> and <strong>Move Down</strong> buttons allow you to reorder the questions; as
+in the set list, you can also drag and drop questions. The order that questions
+appear in the question list has no bearing whatsoever on how or where they
+appear in quizzes. However, changing the order might make things easier to read
+(you might want to group related questions together if there are a lot of them,
+for instance).</p>
+
+<p>The <strong>Import</strong> button allows you to import questions from a CSV file, which can
+be delimited with tabs, commas, or semicolons. The file should contain the
+following seven columns:</p>
+
+<ul>
+<li><em>Question</em>.</li>
+<li><em>Answers A–E</em>, in order. If you only want to use choices A through C and
+you're using a comma as your delimiter, simply place two extra commas after
+choice C to fill the columns with blank values.</li>
+<li><em>The correct answer</em> as a lowercase or uppercase letter, A through E.</li>
+</ul>
+
+<p>When you import, you'll be advised if any of the rows in your file were invalid
+or there were other problems importing, and CQM will import as much as it can.</p>
+
+<p>The <strong>Export</strong> button doesn’t work in the current version of CQM, but it would
+be the inverse of the import button if it did.</p>
+
+<p>The <strong>Generate Quiz</strong> button has the same effect as clicking the Generate Quiz
+button on the main menu, except it tries to select the question set being edited
+as the new set.</p>
+
+<p>The <strong>Randomize Questions</strong> button scrambles the order of the answer choices for
+all questions in the question list (keeping the correct answer pointed to the
+right choice, of course).</p>
+
+<p>At the very bottom of the question list, there is a drop-down box labeled <strong>Jump
+to set</strong>. You can use this to quickly switch to editing the questions of a
+different set without closing the question editor and returning to the set list.</p>
+
+<p><a id="the_selected_question_area"></a></p>
+
+<h3>The selected question area</h3>
+
+<p>The selected question area shows the contents of the question that you’ve
+selected in the question list, or of the new question that’s being added. Since
+it’s possible for questions to be invalid (for instance, if you don’t provide
+any answer choices), when you edit something in the selected question area, the
+rest of the dialog is disabled until you choose to save it or discard it, so
+that you don’t end up with a question that doesn’t work properly. If the
+question is invalid when you click the save button, you’ll be told why and how
+to fix it. You can quickly save and validate your question by pressing
+<strong>Ctrl+S</strong>.</p>
+
+<p>The <strong>Question</strong> field is where you type in the question you want to ask. For
+instance, you might enter “What color is the sky?” There are two special forms
+of markup you can use here:</p>
+
+<ul>
+<li>To create a <em>multi-line question</em>, separate the lines of the question with
+<code>//</code> (two forward slashes with no space in between). When the quiz is
+formatted in PDF or HTML format, this will print the second part on a
+separate line in italics. You might want a second line to provide some
+clarification of the first line, or to give a translation of a question in a
+foreign language.</li>
+<li>To create a <em>blank</em>, write <code>[...]</code>. For instance, an alternative phrasing of
+the question suggested above could be, “The sky is [...].” This method is
+better than simply writing in some underscores (“The sky is ______”)
+because it ensures that your blanks will all be a consistent length, and it
+allows CQM to adjust that length to an appropriate amount for each output
+format.</li>
+</ul>
+
+<p>Due to technical limitations, the <code>//</code> will not be rendered into a separate
+line when creating a TurningPoint quiz, but the markup has been designed so
+that it will remain quite readable in that format: slashes are already standard
+typographical practice for indicating line breaks when they’re unavailable.</p>
+
+<p>If you forget the details of this markup while you’re adding questions, a quick
+reference is available in the <a href="#getting_help">“What’s this?” help</a> for the
+question field. You can request this help by pressing <strong>Shift+F1</strong> with your
+cursor in that field.</p>
+
+<p>The <strong>Answers</strong> box allows you to fill in several multiple-choice answers. You
+must fill in at least boxes A and B (a right and a wrong answer), but you can
+fill up to five. When you’re done adding possible choices, choose the correct
+answer from the Correct Answer drop-down. If you don’t have your hand on the
+mouse, you can select the correct answer by pressing the Tab key to highlight
+the drop-down and then pressing the key corresponding to the correct answer (A
+through E).</p>
+
+<p>The choices you provide will be shown on TurningPoint, HTML, and plain text
+output formats, but the PDF/paper quiz format will show only the question. (This
+decision was made because it’s not much more difficult to hand-grade quizzes
+that have fill-in-the-blanks answers as opposed to multiple-choice answers, and
+they test knowledge more effectively.)</p>
+
+<p>If you would prefer to always place the correct answer in box A and then
+randomize the answers after you’re finished adding answers, you may wish to set
+the “auto-select answer A” option in the <a href="#preferences">preferences</a>. If
+you choose this option, be careful if you create questions with a choice such
+as “all of the above” – the randomize option is not smart enough to deal with
+these and will happily make “all of the above” answer A. On the other hand, if
+you attempt to close the dialog without randomizing the answers, you will be
+warned that most of the answer choices seem to be “A”, so you don’t have to
+worry about accidentally giving a quiz where all the questions have the same
+answer.</p>
+
+<p><a id="the_students_window"></a></p>
+
+<h1>The Students window</h1>
+
+<p>The Students window shows information about the students in your classes. You
+can choose the class to edit with the Class drop-down at the top of the window.
+In general, the information in the students window should be identical to the
+Participant List in TurningPoint. (If you are not using TurningPoint, there is
+no need to put your students into the students window unless you want to.)</p>
+
+<p><a id="table_columns"></a></p>
+
+<h2>Table columns</h2>
+
+<p>There are several important pieces of information about each of your students:</p>
+
+<ul>
+<li><strong>The student’s name</strong>, so you don’t have to call your student <code>9a2e3b</code>
+everywhere in the program.</li>
+<li>The student’s <strong>TurningPoint ID</strong> (<em>TP ID</em>, <em>User ID</em>). This value is used to
+match the student in CQM with the participant and results in TurningPoint.
+This value must be unique for each student, and it must match the ID listed
+in TurningPoint for that student, or CQM will be unable to import results
+(or, worse, some students will have their scores swapped). Integers are often
+convenient IDs, but any kind of number or identifier can be used as long as
+they are unique and match the ones in TurningPoint.</li>
+<li>The student’s <strong>device ID</strong> (<em>TP Device</em>). This value should match the device
+ID printed on the back of the remote the student normally uses. This field is
+not directly used by CQM; it’s fine to use any method supported by
+TurningPoint for matching participants to remotes, as long as TurningPoint
+has the right name associated with the right remote when you take quizzes
+(and the TP ID in TurningPoint matches the ID in CQM).</li>
+<li>The student’s <strong>email address</strong>. This is used to email the student’s results.
+If you don’t plan to email results, this field is not necessary.</li>
+</ul>
+
+<p>CQM does not currently do any validation on these fields, so it important that
+you make sure the user IDs are unique and that the email addresses you provide
+are correct.</p>
+
+<p><a id="editing_students"></a></p>
+
+<h2>Editing students</h2>
+
+<p>To edit entries in the table, double-click on the cell you want to edit, or
+select it and press <strong>F2</strong>. Once you are editing a cell, you can use the
+<strong>Tab</strong> key to proceed to the next cell.</p>
+
+<p>If you need to add or delete a lot of entries at once, you can turn on the
+<strong>Fast edit</strong> option in the upper-right corner. When fast edit is enabled,
+pressing Enter after you’ve finished entering a row will add a new row, and
+clicking the Delete button will delete the row without confirmation.</p>
+
+<p><a id="importing_and_exporting"></a></p>
+
+<h2>Importing and exporting</h2>
+
+<p>The Import and Export buttons read and write <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV data</a> in the same
+format that TurningPoint uses by default, so you can easily fill in the table
+in either CQM or TurningPoint and then transfer it to the other. (If you start
+in TurningPoint, you may want to add an Email column to the table there; the
+data will import into CQM without an email, but you’ll still have to add the
+email addresses later.) If you’d like to import data from another source, such
+as a course management website or university database, you can imitate this
+format. Here is an example:</p>
+
+<pre><code>Device ID(s),Last Name,First Name,User ID,Email
+4566CE,Doe,Jane,1,janedoe@example.com
+7833EE,Doe,John,2,johndoe@example.com
+112345,"A Name with, Commas In It",Sir,3,sircommas@example.com
+</code></pre>
+
+<p>There are two bugs in TurningPoint at the time of this writing that can cause
+issues unless you know how to deal with them:</p>
+
+<ul>
+<li>TurningPoint does not correctly escape fields containing quotation marks
+either on export or import, so make sure that you do not use them in student
+names, IDs, or email addresses. You’re probably unlikely to want them, but it
+will not be possible to export or import a valid file if you don’t observe
+this.</li>
+<li>When you import a students list from CQM into TurningPoint, a new “Device ID”
+column will be incorrectly added alongside the existing one. The way to fix
+this is to delete the old one (which is all the way on the left), then drag
+and drop the new one into its place.</li>
+</ul>
+
+<!-- add info on how to actually import students into TP: non-obvious -->
+
+<p><a id="the_generate_quiz_window"></a></p>
+
+<h1>The Generate Quiz window</h1>
+
+<p>Once you have added <a href="#the_classes_window">at least one class</a> and some <a href="#the_sets_window">sets and
+questions</a>, you can start creating quizzes with the <strong>Generate
+Quiz</strong> window.</p>
+
+<p><a id="new_and_review_sets"></a></p>
+
+<h2>New and review sets</h2>
+
+<p>Before trying to generate a quiz, it’s helpful to understand how sets relate to
+quizzes. At any given time, in each class each of your sets is either a new
+set or a review set:</p>
+
+<ul>
+<li>A <em>new set</em> has never been used on a quiz in this class; you may or may not
+want to put it on a quiz for that class in the future.</li>
+<li>A <em>review set</em> has previously been introduced on a quiz for this class; CQM
+will continue showing questions from that set on future quizzes in that
+class.</li>
+</ul>
+
+<p>One good way to think about the difference is that the new sets that you choose
+today will become review sets tomorrow.</p>
+
+<p>A set can be a new set in some classes and a review set in other classes, since
+sets are shared between classes. So we can say that in my “Fall 2015 Spanish
+101” class the “Spanish Colors” set is a review set because I’ve given a quiz
+on the colors earlier this semester. But in my “Fall 2015 Intro to Computer
+Science” course it’s a new set, because the words for colors in Spanish have
+nothing to do with computer science and so we haven’t studied (and don’t plan
+to study) them.</p>
+
+<p>As mentioned above, CQM keeps track of when review sets were last seen and
+brings them back at regular intervals. The interval doubles after each time the
+quiz is shown, so if you add a new set on your first quiz, it will be a review
+set on quizzes 2, 4, 8, 16, and so on. Similarly, the new set(s) you add on
+the second quiz will come back on quizzes 3, 5, 9, and 17.</p>
+
+<p><a id="quiz_options"></a></p>
+
+<h2>Quiz options</h2>
+
+<p>When you click the <strong>Generate Quiz</strong> button in <a href="#the_main_window">the main window</a>,
+you will be presented with some options for the quiz.</p>
+
+<ul>
+<li><p>At the top of the dialog you can select the <strong>class</strong> for which you want to
+generate a quiz. Remember that any set you create can be used in any class;
+if the <em>New Sets</em> list changes when you select a different class, that's
+because you've introduced different sets in that class so far, not because
+some sets are “part of a different class” and not available in this one.</p></li>
+<li><p>You can select one or more <strong>new sets</strong> to be introduced. You must select at
+least one new set; if you like, you can select more than one by holding down
+the Control or Shift keys.</p></li>
+<li><p>At the bottom of the dialog, you choose how many new questions and how many
+review questions you want to have on this quiz. The <em>available</em> display on
+the right tells you how many questions total are present in those sets. If
+you have a large number of questions in those sets, you probably don't want
+to put them all on the quiz; if you select a smaller number than the maximum
+available, CQM will pick randomly from the ones available (ensuring that at
+least one question from each new and each review set is placed on the quiz).</p></li>
+</ul>
+
+<p>If you want to look at what questions are in each set in order to decide which
+sets to put on the quiz, you can click the <strong>Sets...</strong> button and browse
+through the sets and questions just as you would if you opened the set editor
+from the main screen.</p>
+
+<p><a id="previewing_saving_and_rescheduling_a_quiz"></a></p>
+
+<h2>Previewing, saving, and rescheduling a quiz</h2>
+
+<p>When you’re happy with the options you’ve selected (see above), click the
+<strong>Generate</strong> button. CQM will give you a preview of the quiz that it's
+generated. You can take a look through the questions to make sure you’re happy
+with the ones it’s chosen (maybe it happened to randomly select all of the
+easiest or hardest questions, or one of your two new sets got 2 questions and
+the other got 5, but the first contains much more important material). If
+you’re unhappy with the selections, you can click the <strong>Return to Settings</strong>
+button and click the <strong>Generate</strong> button again to make new random selections.</p>
+
+<p>When you're happy with the quiz as presented, it’s time to save the quiz to a
+file for use. You can choose to save it as a <em>TurningPoint Quiz</em> (an RTF format
+which can be imported into a question list in TurningPoint), a PDF (see
+<a href="#setting_up_latex">setting up LaTeX</a> for information about this feature), an
+HTML file, or a text file. In the case of HTML and text files, you can choose
+to save with or without <em>answers and set names</em>. The easiest way to see the
+difference between these is with an example.</p>
+
+<p>With answers and set names:</p>
+
+<pre>
+1. What is the most usual color for grass? (Colors)
+   a. blue
+   b. orange
+   c. green
+   d. teal
+Answer: (c) green
+</pre>
+
+<p>Without answers and set names:</p>
+
+<pre>
+1. What is the most usual color for grass?
+   a. blue
+   b. orange
+   c. green
+   d. teal
+</pre>
+
+<p>As you can see, one format is suitable for handing out as a quiz, while the
+other is useful for studying a quiz later or for looking at as a teacher.</p>
+
+<p><a id="rescheduling_a_quiz"></a>
+When you’re done saving the quiz in any formats you want, click the
+<strong>Reschedule</strong> button. This will change the new set into a review set so that
+it can come back later. It will also record an entry in the <a href="#the_quiz_history_window">quiz history
+window</a>, which will allow you to look at the quiz and save
+it into different formats again later.</p>
+
+<p>If you decide you don’t want to use the quiz after all, you can click the
+<strong>Return to Settings</strong> button.</p>
+
+<p><a id="using_quizzes_in_turningpoint"></a></p>
+
+<h2>Using quizzes in TurningPoint</h2>
+
+<p><a id="importing_a_quiz_into_turningpoint"></a></p>
+
+<h3>Importing a quiz into TurningPoint</h3>
+
+<p>Once you’ve exported an RTF file in the appropriate format, you can create a
+question set in TurningPoint from it:</p>
+
+<ol>
+<li>Start TurningPoint and click the <strong>Content</strong> tab.</li>
+<li>Click the drop-down box titled <strong>Content</strong> in the upper-left corner and
+choose <strong>New → Question List</strong>.</li>
+<li>Give the questions a name and description. If you’ve created a preset, you
+can select it from the <strong>Use Preset</strong> drop-down, which will adjust all the
+options under “Preferences” for you. Otherwise, adjust the options to your
+liking.</li>
+<li>In the new question list, click the <strong>Question</strong> button in the upper-left
+corner, then choose <strong>Import</strong>.</li>
+<li>Select the RTF file you want to import and click OK. In the resulting
+“Import Questions” dialog box, leave all the options as is and click the
+<strong>Import</strong> button.</li>
+<li>Delete the topmost question, which is automatically created by TurningPoint
+and contains only dummy text.</li>
+<li>In the lower-right corner, click <strong>Save and Close</strong>.</li>
+</ol>
+
+<p><a id="polling"></a></p>
+
+<h3>Polling</h3>
+
+<p>After importing a quiz into TurningPoint, you are ready to create the
+PowerPoint and start the quiz:</p>
+
+<ol>
+<li>Click the <strong>Polling</strong> tab at the top.</li>
+<li>Select your class in the <strong>Participants</strong> list and the question list you
+just created in the <strong>Content</strong> class.</li>
+<li>Click the <strong>PowerPoint Polling</strong> section on the right. PowerPoint will load
+and import the questions. Along with the new PowerPoint, an empty PowerPoint
+will open; you should close this without saving it.</li>
+<li>Begin the slideshow to start polling.</li>
+</ol>
+
+<p>When you finish, don’t forget to <em>save your session data</em> so that you can
+import the results back into CQM. TurningPoint will prompt you to do this when
+you close PowerPoint; you don’t need to save the PowerPoint file, but you do
+need to save the session data. You can put the data anywhere convenient; you
+will need to open it when you perform the next step, <a href="#importing_results">exporting it to
+CQM</a>.</p>
+
+<p><a id="the_quiz_history_window"></a></p>
+
+<h1>The Quiz History window</h1>
+
+<p>The quiz history window lets you see the quizzes you’ve
+<a href="#the_generate_quiz_window">given</a> in the past. For information about the columns
+presented in the quiz table, see the “What’s this?” help.</p>
+
+<p><a id="viewing_a_quiz"></a></p>
+
+<h2>Viewing a quiz</h2>
+
+<p>The <strong>View quiz</strong> button shows the same dialog that is used to <a href="#previewing_saving_and_rescheduling_a_quiz">preview a quiz
+when you’re generating it</a>. All of the functions work the same
+way, with the exception that there is no “reschedule” button now, since the
+sets have already been <a href="#rescheduling_a_quiz">rescheduled</a>.</p>
+
+<p><a id="importing_results"></a></p>
+
+<h2>Importing results</h2>
+
+<p>The <strong>Import results</strong> button allows you to import results from TurningPoint.
+In order to get the results into CQM, you first need to save the session data
+when you’re finished <a href="#polling">polling</a>; TurningPoint will prompt you to do
+this. It’s difficult to rename the session later, so it’s best to give the file
+a helpful name like “My Class Quiz 1”. Once you have the session file, follow
+these steps to import it into TurningPoint and convert it to a format that CQM
+can use:</p>
+
+<ol>
+<li>Click the <strong>Manage</strong> tab in TurningPoint.</li>
+<li>In the left pane, choose your class’s participants list.</li>
+<li>From the <strong>Session</strong> drop-down, choose <strong>Import</strong>. Select the session file
+and click OK.</li>
+<li>If necessary, click the arrow next to your class to expand the list, then
+choose the session you just imported.</li>
+<li>At the bottom-right of this window, click the <strong>Reports</strong> button.</li>
+<li>In the upper-right of the reports screen, choose <strong>Results by Participant</strong>
+from the drop-down.</li>
+<li>Click the <strong>Export</strong> button in the upper-left, then choose <strong>HTML</strong>. Save
+the HTML file.</li>
+<li>In CQM, open the history window, select the appropriate quiz, click the
+<strong>Import results</strong> button, and select the HTML file you exported in step 7.</li>
+</ol>
+
+<p>Imported results will appear in the Results window, described next.</p>
+
+<p><a id="viewing_results"></a></p>
+
+<h2>Viewing results</h2>
+
+<p>The Results window, accessed by clicking the <strong>View results</strong> button in the
+history window, lets you review how each of your <a href="#the_students_window">students</a>
+did on a given quiz. Before you can use the results window, you need to <a href="#importing_results">import
+your results from TurningPoint</a>.</p>
+
+<p>Like the question editor, the Results window has two panes; choosing a student
+on the left will show that student’s scores and results on the right. The
+student’s score is displayed at the top of the pane, and the student’s answer
+to each question is shown in the table along with the correct answer. An
+exclamation point in parentheses (<code>(!)</code>) is used to highlight any answers that
+were wrong.</p>
+
+<p>The class average is listed at the top of the window, so you can compare a
+student’s score with the average or just get a general idea of how the class
+did.</p>
+
+<p>If you want more complex statistics, you can use the reports and statistics in
+TurningPoint, which are quite extensive. However, if you look at these
+statistics, you should be aware that repolling a question will result in
+TurningPoint calculating your students’ scores incorrectly -- a repolled
+question will result in two questions showing up in the list, and both of them
+will be counted in students’ scores. CQM filters out these duplicates, counting
+only the last poll for a question, so the scores in CQM should always be
+accurate.</p>
+
+<p>If you’d like to match up the answers listed in the results with the quiz
+questions, you can click the <strong>Show quiz</strong> button at the bottom of the window
+to open the <a href="#previewing_saving_and_rescheduling_a_quiz">quiz preview</a>.</p>
+
+<p>If you imported the results incorrectly or just don’t want to keep them in CQM
+for some reason, you can delete them from the database by clicking <strong>Delete
+results</strong>.</p>
+
+<p><a id="emailing_results"></a></p>
+
+<h2>Emailing results</h2>
+
+<p>With a paper quiz, you can easily hand graded quizzes back to your students,
+letting them know how they individually did without sharing the information
+with the rest of the class. With a clicker quiz taken through TurningPoint,
+however, it is not obvious how to accomplish this. CQM solves this problem by
+providing a function to email students their results. Each student will receive
+only his or her own score and answers (and information about the class average,
+if you wish). The precise format of the email and what is sent in it are very
+customizable.</p>
+
+<p>If a student doesn’t have any results for a quiz (for instance, if they were
+absent, or they added the class after the quiz was given), a quick message will
+be sent indicating that no results were recorded for that quiz number and they
+should contact their instructor if they think this is wrong.</p>
+
+<p>You can access the email function by clicking the <strong>Email results</strong> button.</p>
+
+<p><a id="email_options"></a></p>
+
+<h3>Email options</h3>
+
+<p>The Email Results dialog is a somewhat complicated form. For this reason, the
+values you fill in will be saved until the next time you use the email function
+in the same class. (Different classes have separate options, but if you want to
+use exactly the same ones, you can always copy the options into a document and
+paste them into the other class’s options dialog.)</p>
+
+<p><a id="the_email_section"></a></p>
+
+<h4>The Email section</h4>
+
+<p>In the top section of the dialog, you see most of the same fields that you
+normally see when you write an email. The exception is that you tell CQM who
+the email is coming <em>from</em> rather than who it’s going <em>to</em>. (The email
+addresses the message is being sent <em>to</em> are pulled from the Email column of
+the Students table for that class; before sending email for the first time,
+it’s a good idea to be sure that this column is filled out and accurate.) You
+can put anything you like in the <strong>From name</strong> field, but you should use the
+email address you’re sending from in the <strong>From address</strong> field; some services
+will allow you to send email from a different address than the one you actually
+have with their service, but this doesn’t always work, and it may increase the
+chances of your emails being flagged as spam.</p>
+
+<p>In the <strong>subject</strong> and <strong>body</strong> fields, you can write any normal text you like,
+such as a greeting or information about the class, but you should also include
+some <em>format parameters</em>, which are special strings beginning with a dollar
+sign that are replaced with appropriate content when the email is sent out. For
+example, if you write <code>$n</code> (which represents the quiz number) in your subject
+or body when sending the results for quiz 2, CQM will replace it with a <code>2</code>
+when the email is sent out. Some parameters, like this one, are the same for
+the whole class; others, such as <code>$f</code> (first name) and <code>$p</code> (student’s percent
+correct), are specific to individual students and will be evaluated separately
+for each student emailed.</p>
+
+<p>A full listing of format parameters follows. These parameters are available in
+both the subject and the body fields:</p>
+
+<ul>
+<li><strong>$$</strong>: a literal dollar sign (that is, if you actually want a dollar sign to
+appear in the text of your final email, instead of having it form part of a
+format parameter, write <code>$$</code> instead of <code>$</code>)</li>
+<li><strong>$c</strong>: the name of the current class</li>
+<li><strong>$n</strong>: the number of this quiz</li>
+<li><strong>$f</strong>: the student’s first name</li>
+<li><strong>$l</strong>: the student’s last name (lowercase ell)</li>
+<li><strong>$s</strong>: the student’s name formatted as <em>Firstname Lastname</em></li>
+<li><strong>$S</strong>: the student’s name formatted as <em>Lastname, Firstname</em></li>
+<li><strong>$r</strong>: the number of questions the student got correct on this quiz</li>
+<li><strong>$t</strong>: the total number of questions on this quiz</li>
+<li><strong>$p</strong>: the student’s percentage grade on this quiz (equivalent to 100 times
+<code>$r</code> divided by <code>$t</code>, to two decimal places)</li>
+<li><strong>$R</strong>: the class’s average number of questions correct</li>
+<li><strong>$T</strong>: same as <code>$t</code> (this is primarily supported in case you type it by
+mistake)</li>
+<li><strong>$P</strong>: the class’s average percentage</li>
+</ul>
+
+<p>These parameters are available only in the body field, because they are
+multiple lines long and would not make sense in the subject field:</p>
+
+<ul>
+<li><strong>$a</strong>: A table of the student’s answer choices and the correct choices. This
+is basically the same as the table shown in the Results dialog.</li>
+<li><strong>$q</strong>: A listing of the questions on the quiz; this looks the same as the
+<a href="#previewing_saving_and_rescheduling_a_quiz">quiz preview</a> accessible in the quiz history or generate
+quiz windows.</li>
+<li><strong>$Q</strong>: Like <code>$q</code>, but includes the student’s answers along with the correct
+answers.</li>
+</ul>
+
+<p>Format parameters that don’t match any of these sequences will be sent on in
+the email exactly as they are (so if you write <code>$Z</code>, your email will contain an
+actual <code>$Z</code> when your students receive it).</p>
+
+<p>If you don’t want to memorize all these format parameters, you’ll be happy to
+know that a quick reference is available in the “What’s this?” help of the Body
+field (press <strong>Shift-F1</strong> while editing).</p>
+
+<p>Here’s an example of one way you could write the body of your email:</p>
+
+<pre><code>Hi $f,
+
+You scored $r/$t ($p%) on quiz $n; the class average was $R/$t. Here is an annotated version of the quiz:
+
+$Q
+
+See you in class soon!
+</code></pre>
+
+<p><a id="the_smtp_server_section"></a></p>
+
+<h4>The SMTP server section</h4>
+
+<p>CQM does not have any kind of central server that can send out email, so you
+need to provide it with the information for an SMTP (<a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">Simple Mail Transfer
+Protocol</a>) server that can be used to send the mail. The good news is
+that if you have any kind of email account, you probably have access to an SMTP
+server. Alternatively, if you’d rather use a different email account from your
+main one, you can open a new free email account; Gmail allows you to send up to
+500 emails via SMTP per day (max 200 per hour), and most other services are
+probably similar.</p>
+
+<p>If you’re not sure what settings you need to use for your email account, you
+can poke around in the help for your email service or search Google for
+something like <code>Gmail SMTP settings</code>.</p>
+
+<p><a id="preferences"></a></p>
+
+<h1>Preferences</h1>
+
+<p>You can change CQM’s preferences by choosing <strong>Tools → Preferences</strong> in the
+<a href="#the_main_window">main window</a>. The following options are available:</p>
+
+<ul>
+<li><strong>Debug mode</strong>: Show the debug menu and show a slightly different message
+when an error occurs. Most users can leave this off.</li>
+<li><strong>Auto-select answer A</strong>: When adding new questions in the <a href="#the_question_editor">question
+editor</a>, start with A selected as the correct answer
+instead of leaving the field blank. This may be useful in conjunction with
+the randomize answers button.</li>
+<li><strong>Save email passwords</strong>: Save the password entered for the SMTP server in
+the <a href="#email_options">email options</a>. This is saved per class. The password
+storage has about the same level of security as the “save password” function
+on an average web browser: it is not possible to view saved passwords through
+CQM after entering them the first time, but passwords are stored in the
+database in plain text, so a serious attacker could open the database
+manually and extract the password. You can clear all saved passwords at any
+time by choosing <strong>Tools → Forget Saved Passwords</strong>.</li>
+<li><strong>Minutes between saves</strong>: This controls how often CQM saves your changes
+automatically. See the section on <a href="#about_databases">databases</a> for more
+information.</li>
+<li><strong>XeLaTeX command</strong>: When generating PDF output, call this program on the
+LaTeX code to render the PDF. See the <a href="#setting_up_latex">setting up LaTeX</a>
+section for more information.</li>
+</ul>
+
+<p><a id="miscellaneous_and_supplementary_material"></a></p>
+
+<h1>Miscellaneous and supplementary material</h1>
+
+<p><a id="setting_up_latex"></a></p>
+
+<h2>Setting up LaTeX</h2>
+
+<p>To produce PDF output, CQM requires the <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX document preparation
+system</a> to be installed on your computer. (Alternatively, you
+can <a href="#latex_servers">use a LaTeX server</a>.) On Linux, installing LaTeX through
+your distribution’s package manager should work. On Windows, you can <a href="http://www.miktex.org/download">install
+MiKTeX</a>.</p>
+
+<p>Whatever your operating system, you will also need the following LaTeX packages
+to create PDF quizzes with CQM: <code>fontspec</code>, <code>xunicode</code>, <code>geometry</code>, <code>setspace</code>,
+<code>titlesec</code>, <code>microtype</code>, <code>ebgaramond</code>, <code>ifluatex</code>, <code>ifxetex</code>. It appears that in recent versions of TeX Live, you may also need to install <code>l3kernel</code> and <code>l3packages</code> as dependencies of the packages listed above. Some of these
+will probably come with any installation of LaTeX, but some will not. If you’re
+using MiKTeX, you can find the “package manager” in your start menu and install
+each of the packages.</p>
+
+<p>If <code>xelatex</code> is not in the system <code>$PATH</code> (it probably will be on Linux, may be
+on OS X, and definitely will not be on Windows unless you set it up that way),
+you need to set the <strong>XeLaTeX command</strong> in the
+<a href="#preferences">preferences</a> before trying to generate a PDF quiz, or you
+will get an error indicating that the LaTeX executable could not be found.</p>
+
+<p><a id="latex_servers"></a></p>
+
+<h2>LaTeX servers</h2>
+
+<p>It can sometimes be difficult or annoying to set up LaTeX on a computer
+(especially if there are configuration issues, low disk space, or the
+application needs to be used on a number of different computers that otherwise
+do not need LaTeX installed). As a result, CQM offers an alternative method: compiling the document on a <em>LaTeX server</em>. Any server that can support a LaTeX installation and accept incoming SSH connections can be configured as a LaTeX server.</p>
+
+<p><a id="client-side_setup"></a></p>
+
+<h3>Client-side setup</h3>
+
+<p>This section explains how to set up your copy of CQM to connect to a LaTeX
+server; it assumes you have already set up this server or had an administrator
+set it up for you.</p>
+
+<ol>
+<li>In the preferences dialog, choose the <strong>Use a LaTeX server</strong> radio button.</li>
+<li>Fill in the hostname of the server you want to connect to and your username
+and password on the server. If you didn’t set up the server and don’t know
+these, ask the server administrator.</li>
+<li>Make sure you’re connected to the Internet.</li>
+<li>Choose to create a paper quiz as usual. If everything goes well, the PDF
+will be created just as if LaTeX was installed on your local machine
+(depending on how fast your internet connection and the server are,
+it may be slower and take up to a few seconds, so be patient).</li>
+</ol>
+
+<p><a id="server_setup"></a></p>
+
+<h3>Server setup</h3>
+
+<p>This section explains how to configure a server to compile LaTeX for client
+copies of CQM. This is somewhat complex, so it is much more technical than the
+rest of this manual. A UNIX-style server is assumed by the instructions, but
+other operating systems should work as well.</p>
+
+<ol>
+<li>Install LaTeX on the server, with all the required packages, and make sure
+that you can compile the test file
+<code>db/tests/resources/test_latex_against.tex</code> (or a similar test file, if
+you’re using custom headers and footers to create a different format than
+the standard).</li>
+<li>Create a new user account to be used for LaTeX compilation. Depending on who
+is going to be using the account, you may wish to lock down this account so
+that it can’t access anything on the system that it doesn’t need to. Note
+that the home directory of this user will be used to temporarily hold files
+that are being processed.</li>
+<li>Set a password for the new account and try an SSH connection to that account
+to confirm that CQM will be able to access it. (Currently CQM only supports
+password-based authentication; if there’s need for it in the future,
+key-based authentication may be added.)</li>
+<li>Create a <code>remote-latex.sh</code> script, make it executable, and place it
+somewhere in the new user account’s path. This script should, at a minimum,
+compile the first argument passed to it into a pdf. If the argument is named
+<code>foobar</code>, the script should call LaTeX on the file <code>foobar.tex</code>, and a file
+<code>foobar.pdf</code> should be present in the same directory when the script exits.
+If the script is unable to do this (e.g., because the input was not valid
+LaTeX source, or the system’s LaTeX installation is broken), then it should
+write something to stderr to notify the client that an error occurred. (If
+stderr is empty, success is assumed.) You may also want to add some kind of
+logging so you can keep track of what’s being compiled on your server and
+what might be causing errors. A sample script is listed below.</li>
+<li>Create a <code>remote-latex-cleanup.sh</code> script, make it executable, and place it
+somewhere in the new user account’s path. This script receives the same
+argument as <code>remote-latex.sh</code>, once the output file has been successfully
+copied back to the client computer, and should delete input, output, and
+intermediary files. Note that this script will not be executed if there is
+an error in the compilation, so you may want to add code to the error
+handler of <code>remote-latex.sh</code> to do that, or regularly clear the directory
+using a cron job; alternatively, you might want to save them and take a look
+periodically to confirm that no jobs are failing and diagnose the problem if
+some are (CQM should not produce invalid LaTeX code).</li>
+<li>Follow the directions under <a href="#client_side_setup">Client-side setup</a> and test
+creating a pdf.</li>
+</ol>
+
+<p><a id="how_the_client_performs_remote_compilation"></a></p>
+
+<h4>How the client performs remote compilation</h4>
+
+<p>When compiling through a LaTeX server, CQM creates a <code>.tex</code> file to be
+compiled. Then, rather than running <code>xelatex</code> on that file as in local
+compilation, it takes the following steps:</p>
+
+<ol>
+<li>Open an SSH connection to the server.</li>
+<li>Open an SFTP channel using that connection and put the tex file into the
+home directory of the account on the server. The base filename used,
+hereafter referred to as <code>[filename]</code>, is composed of a UUID to ensure there
+will be no conflicts if there are other files being processed at the same
+time. The file put onto the server is named <code>[filename].tex</code>.</li>
+<li>Call <code>remote-latex.sh [filename]</code> and block until the script exits.</li>
+<li>Get the pdf file <code>[filename].pdf</code> to a local temporary file.</li>
+<li>Call <code>remote-latex-cleanup.sh [filename]</code> and close the ssh connection.</li>
+<li>Copy the received PDF file into the folder selected by the user as the save
+location.</li>
+</ol>
+
+<p><a id="sample_<code>remote-latex.sh</code>_script"></a></p>
+
+<h4>Sample <code>remote-latex.sh</code> script</h4>
+
+<pre><code>#!/bin/bash
+
+# http://stackoverflow.com/questions/3173131/
+# redirect-copy-of-stdout-to-log-file-from-within-bash-script-itself
+LOGFILE=/home/latex-user/remote-latexing.log
+exec &gt;  &gt;(tee -a $LOGFILE)
+exec 2&gt; &gt;(tee -a $LOGFILE &gt;&amp;2)
+
+echo -e "\n-----Beginning job at $(date '+%Y-%m-%d %H:%M:%S UTC %z')-----"
+echo -e "(Client at $SSH_CLIENT logged into $(whoami))"
+xelatex -halt-on-error $1.tex
+
+if [ $? != 0 ]; then
+    remote-latex-cleanup.sh $1
+    echo "texing failed" &gt;&amp;2
+fi
+</code></pre>
+
+<p><a id="sample_<code>remote-latex-cleanup.sh</code>_script"></a></p>
+
+<h4>Sample <code>remote-latex-cleanup.sh</code> script</h4>
+
+<pre><code>#!/bin/bash
+
+LOGFILE=/home/latex-user/remote-latexing.log
+
+# basic sanity checks to be sure we don’t go deleting the wrong things
+if [ $(pwd) != '/home/latex-user' ]; then
+    echo "This script may only be used within the LaTeX user's homedir."
+    exit
+fi
+if [ "$1" == "" ]; then
+    echo "You must provide an argument."
+    exit
+fi
+
+rm -f "$1".*
+echo -e "Cleanup completed successfully at $(date '+%Y-%m-%d %H:%M:%S UTC %z')." &gt;&gt; $LOGFILE
+</code></pre>
+
+<p><a id="keyboard_shortcuts"></a></p>
+
+<h2>Keyboard shortcuts</h2>
+
+<p>It should be possible to use CQM with little to no mouse input once you become
+familiar with it. Most buttons and fields have an underlined access character;
+to activate that button or field, hold down the Alt key and press that access
+character. Additionally, in the question editor, Sets dialog, and Classes
+dialog, pressing Alt-L will focus the main list.</p>
+<p></p>
+</body>
+</html>

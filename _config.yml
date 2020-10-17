@@ -1,0 +1,58 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Soren Bjornstad
+tagline:          ''
+description:      "Soren Bjornstad's landing page"
+url:              http://sorenbjornstad.com
+#baseurl:          /
+
+author:
+  name:           'Soren Bjornstad'
+  url:            http://sorenbjornstad.com/
+
+#paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+exclude:
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - Makefile
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - s3_website.yml
+  - tmp
+  - /automation # ignore build scripts
+  - /docs # ignore Minimal Mistakes /docs
+  - /test # ignore Minimal Mistakes /test
+  - /local # ignore local development files
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+plugins:
+  - jekyll-redirect-from

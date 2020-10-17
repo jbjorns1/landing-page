@@ -1,0 +1,6 @@
+local/
+s3_website.yml
+.sass-cache/
+_site/
+.DS_Store
+._.DS_Store
