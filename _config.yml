@@ -6,14 +6,14 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            Soren Bjornstad
+title:            Jennifer Bjornstad
 tagline:          ''
-description:      "Soren Bjornstad's landing page"
+description:      "Jennifer Bjornstad's landing page"
 url:              http://sorenbjornstad.com
 #baseurl:          /
 
 author:
-  name:           'Soren Bjornstad'
+  name:           'Jennifer Bjornstad'
   url:            http://sorenbjornstad.com/
 
 #paginate:         5
@@ -42,13 +42,10 @@ exclude:
   - node_modules
   - package.json
   - Rakefile
-  - README
-  - s3_website.yml
-  - tmp
-  - /automation # ignore build scripts
+  - README.md
+   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
-  - /local # ignore local development files
 keep_files:
   - .git
   - .svn
